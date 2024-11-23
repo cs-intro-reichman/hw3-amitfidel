@@ -28,22 +28,77 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		// Replace the following statement with your code
-		return false;
+		str1=preProcess(str1);
+		str2=preProcess(str2);
+		int index=0;
+		for(int i=0;i<str1.length();i++)
+		{
+			index=str2.indexOf(str1.charAt(i));
+			if (index==-1) 
+				{
+					return false;
+				}
+				else
+				{
+					if(index==0)
+					{
+						str2=str2.substring(index+1);
+					}
+					else
+					str2=str2.substring(0, index)+str2.substring(index+1,str2.length());
+				}
+		}
+		return true;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
-		// Replace the following statement with your code
-		return "";
+		String goodStr="";
+		for(int i=0;i<str.length();i++)
+		{
+			if (str.charAt(i)>=97&&str.charAt(i)<=122) 
+			{
+				goodStr+=(char)(str.charAt(i));
+			}
+				if (str.charAt(i)>64&&str.charAt(i)<90) 
+			{
+				goodStr+=(char)(str.charAt(i)+32);
+			}
+			if (str.charAt(i)==32) 
+			{
+				goodStr+=(char)(str.charAt(i));
+			}
+			
+		}
+		return goodStr;
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
-	public static String randomAnagram(String str) {
-		// Replace the following statement with your code
-		return "";
+	public static String randomAnagram(String str) 
+	{
+		str=preProcess(str);
+		String str2="";
+		int rnd=0;
+		int num=str.length();
+		for(int i=0;i<num;i++)
+		{
+			
+			rnd=(int)(Math.random()*(str.length()));
+			if(rnd==0)
+				{
+					str2+=str.charAt(rnd);
+					str=str.substring(rnd+1);
+				}
+				else
+				{
+					str2+=str.charAt(rnd);
+					str=str.substring(0, rnd)+str.substring(rnd+1,str.length());
+				}
+		}
+		
+		return str2;
 	}
 }
