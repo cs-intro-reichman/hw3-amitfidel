@@ -28,6 +28,7 @@ public class LoanCalc {
 	// Computes the ending balance of a loan, given the loan amount, the periodical
 	// interest rate (as a percentage), the number of periods (n), and the periodical payment.
 	private static double endBalance(double loan, double rate, int n, double payment) {
+		rate = 1 + (rate * 0.01);
 		for(int i=0; i<n;i++)
 		{
 		loan=(loan - payment) * rate;
@@ -60,8 +61,8 @@ public class LoanCalc {
     public static double bisectionSolver(double loan, double rate, int n, double epsilon) 
 	{  
 		iterationCounter=0;	
-		double h=loan/5;
-		double l=loan/10;
+		double h=10000;
+		double l=9000;
 		double g=(l+h)/2;
         while (h-l>epsilon) 
 		{
