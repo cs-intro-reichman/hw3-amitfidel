@@ -123,12 +123,19 @@ public class Algebra {
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
 		int num=0;
-		int counter=1;
-			while (num<x1) {
-				num=plus(num, x2);
+		int counter=0;
+		int x11=myAbs(x1);
+		int x22=myAbs(x2);
+			while (num<=x11) {
+				num=plus(num, x22);
 				if(minus(x1, num)>=x2)
 				{
-					counter++;
+					if (x1>0&x2>0||x1<0&x2<0) 
+					{
+						counter++;
+					}
+					else counter--;
+					
 				}
 				
 			}
