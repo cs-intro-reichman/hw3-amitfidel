@@ -6,6 +6,11 @@
 public class Algebra {
 	public static void main(String args[]) {
 	    // Tests some of the operations
+		System.out.println(times(0,5));
+		System.out.println(times(2,0)); //-6
+		System.out.println(times(-2,5)); //-6
+		System.out.println(times(-2,-5)); //-6
+		System.out.println(times(2,-5)); //-6
 		System.out.println(plus(2,-3)); //-1
 		System.out.println(minus(2,-3)); //5
 		System.out.println(times(2,-3)); //-6
@@ -83,7 +88,7 @@ public class Algebra {
 			
 			for(int i=0; i<myAbs(x2); i++)
 				{
-				num=plus(num, myAbs(1));
+				num=plus(num, myAbs(x1));
 				}
 		}
 		else
@@ -99,6 +104,8 @@ public class Algebra {
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
 		int num=x;
+		if(x==0)return 0;
+		if(n==0)return 1;
 		if (x>0||x<0&mod(n, 2)==0) 
 		{
 			if (x<0) 
