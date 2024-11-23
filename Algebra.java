@@ -6,6 +6,12 @@
 public class Algebra {
 	public static void main(String args[]) {
 	    // Tests some of the operations
+		System.out.println(div(25,5));
+		System.out.println(div(26,5));
+		System.out.println(div(25,-5));
+		System.out.println(div(0,5)); //0
+		System.out.println(div(-25,-5)); //0
+		System.out.println(div(-25,5)); //0
 		System.out.println(times(0,5));
 		System.out.println(times(2,0)); //-6
 		System.out.println(times(-2,5)); //-6
@@ -133,9 +139,10 @@ public class Algebra {
 		int counter=0;
 		int x11=myAbs(x1);
 		int x22=myAbs(x2);
+		if(x1==0) return 0;
 			while (num<=x11) {
 				num=plus(num, x22);
-				if(minus(x1, num)>=x2)
+				if(minus(x11, num)>=0)
 				{
 					if (x1>0&x2>0||x1<0&x2<0) 
 					{
