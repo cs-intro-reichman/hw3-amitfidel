@@ -66,6 +66,10 @@ public class Anagram {
 			{
 				goodStr+=(char)(str.charAt(i)+32);
 			}
+			if (str.charAt(i)==32) 
+			{
+				goodStr+=(char)(str.charAt(i));
+			}
 			
 		}
 		return goodStr;
